@@ -39,6 +39,31 @@ Live: {handle} · GTA 6 countdown · lane: {lane}
 BRB: hold that thought · back in 2
 Ending: that’s the night · clips tomorrow
 
+## Cut — scene director
+
+Phone board for the desk. Demo runs without OBS.
+
+### Automate
+- **Go live** — Starting Soon hold, then Live
+- **BRB** — hold, then return
+- **Out** — Ending
+
+### OBS scene names (exact)
+Starting Soon
+Live
+BRB
+Ending
+Starting Soon / Tokyo
+Live / Tokyo
+BRB / Tokyo
+Ending / Tokyo
+
+### Wire OBS (optional)
+OBS → Tools → WebSocket Server Settings → Enable.
+Same Wi-Fi. If the page is https and connect fails, stay on Demo and call the cuts from the board.
+
+### Holds
+Default: Go live 120s · BRB 120s · Out 20s
 !gta6  Grand Theft Auto VI — Nov 19, 2026 — PS5 + Xbox. PC not announced.
 !when  Thursday, Nov 19, 2026.
 
