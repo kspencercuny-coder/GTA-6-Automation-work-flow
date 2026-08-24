@@ -1,0 +1,3 @@
+langchain-xai
+langchain-anthropic
+langchain-core
