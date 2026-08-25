@@ -36,7 +36,7 @@ def build_agents() -> tuple[ChatXAI, ChatAnthropic]:
         temperature=0.2,
     )
     claude = ChatAnthropic(
-        model="claude-3-5-sonnet-latest",
+        model="claude-sonnet-4-6)
         temperature=0.3,
     )
     return grok, claude
