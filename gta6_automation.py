@@ -32,7 +32,7 @@ def require_keys() -> None:
 
 def build_agents() -> tuple[ChatXAI, ChatAnthropic]:
     grok = ChatXAI(
-        model="grok-2",
+        model="grok-4-1-fast-non-reasoning",
         temperature=0.2,
     )
     claude = ChatAnthropic(
