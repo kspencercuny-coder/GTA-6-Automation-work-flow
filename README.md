@@ -1,72 +1,76 @@
- 
-# GTA 6 — Streamer Workflow
+# GTA 6 Production Automation & Stream Scene Director (Cut)
 
-Ops kit for the run-up to Grand Theft Auto VI (Nov 19, 2026).
-Creator workflow, not a game bot.
+An AI-driven live production automation system and content orchestration pipeline built for technical live streaming workflows leading up to the Grand Theft Auto VI release. 
 
-## How a night works
-1. Pick one lane: Hype desk / Warm-up / Setup / Launch
-2. Title: GTA 6 | {lane} | {one promise}
-3. 90 min show, then name 3 clips and stop
+This repository bridges **Large Language Model (LLM) multi-agent orchestration** with real-time broadcasting tools. It features an automated multi-model research pipeline (`gta6_automation.py`) alongside an optimized desktop stream configuration framework (`Cut`).
 
-## Pre-stream (30 min)
-- Mic check (listen back 5 sec)
-- Scenes: Starting Soon → Live → BRB → Ending
-- Local recording ON (clip source)
-- Title + category set
-- Water, phone on DND
-- Say the stream title in the first 20 se
+---
 
-## Live (90 min)
-- 0:00 hook: who you are, what tonight is, when you end
-- 0:15 segment A (one lane only)
-- 0:45 reset
-- 0:50 segment B (change texture, not topic)
-- 1:20 close: 1 clip moment, next stream time, ending scene
+## 🚀 Core Features
 
-If chat is dead:
-- First GTA you played?
-- Jason or Lucia — who is the real problem?
-- Worst wanted-level story 
+### 1. Multi-Model AI Research Pipeline (`gta6_automation.py`)
+A data pipeline built using **LangChain Expression Language (LCEL)** that leverages the complementary strengths of two industry-leading LLMs:
+* **Real-Time Data Aggregation (xAI Grok API):** Utilizes `grok-4-1-fast-non-reasoning` to query, extract, and sort the latest news, leak telemetry, and verified studio announcements into strict informational categories (`CONFIRMED`, `RUMOR`).
+* **Structured Synthesis (Anthropic Claude API):** Orchestrates a downstream pass to `claude-sonnet-4-6` to parse the raw unstructured intelligence brief into a meticulously formatted markdown report.
+* **Notification Webhooks:** Dispatches a structured automated operational notice to a target **Discord Webhook** immediately upon pipeline completion.
 
-Mark 3 timestamps
-- Title each clip ≤ 70 characters
-- Queue for morning, not 2am
+### 2. Stream Director Control Framework (Cut)
+A structured control protocol engineered to reduce operational friction and cognitive load for content creators managing complex multi-source setups during live broadcasts.
+* **OBS WebSocket Integration:** Interfaces directly with OBS Studio over local networks to execute automated scene transitions (`Starting Soon` ➔ `Live` ➔ `BRB` ➔ `Ending`).
+* **Automated Countdowns & Overlays:** Dynamically pushes countdown timers and chat engagement prompts directly into video asset layers.
+* **Show Running Logic:** Implements rigid segment boundaries (Hook, Resets, Segment A/B lanes) to ensure broadcast precision within a 90-minute runtime window.
 
-## Overlay
-Starting Soon: GTA 6 DESK · going live · tonight: {promise}
-Live: {handle} · GTA 6 countdown · lane: {lane}
-BRB: hold that thought · back in 2
-Ending: that’s the night · clips tomorrow
+---
 
-## Cut — scene director
+## 🛠️ Architecture & Tech Stack
 
-Phone board for the desk. Demo runs without OBS.
+* **Language:** Python 3.11+
+* **Frameworks:** LangChain Core, LangChain Anthropic, LangChain xAI
+* **APIs & Protocols:** Anthropic Claude API, xAI Grok API, OBS WebSocket Server, Discord Webhooks API, REST / JSON Data Structures
+[ Scheduled Event Trigger ]
+│
+▼
+┌───────────────────────────────┐
+│     gta6_automation.py        │
+└───────────────┬───────────────┘
+│
+┌───────────────────────┴───────────────────────┐
+▼                                               ▼
+┌────────────────────┐                          ┌────────────────────┐
+│   xAI Grok API     │                          │ Anthropic Claude   │
+│ (Real-time Intel)  │ ───[ Concatenated Text ]➔│ (Markdown Design)  │
+└────────────────────┘                          └──────────┬─────────┘
+│
+▼
+┌────────────────────┐
+│  Discord Webhook   │
+│ (Uptime Warning)   │
+└────────────────────┘
+---
 
-### Automate
-- **Go live** — Starting Soon hold, then Live
-- **BRB** — hold, then return
-- **Out** — Ending
+## ⚙️ Setup & Installation
 
-### OBS scene names (exact)
-Starting Soon
-Live
-BRB
-Ending
-Starting Soon / Tokyo
-Live / Tokyo
-BRB / Tokyo
-Ending / Tokyo
-
-### Wire OBS (optional)
-OBS → Tools → WebSocket Server Settings → Enable.
-Same Wi-Fi. If the page is https and connect fails, stay on Demo and call the cuts from the board.
-
-### Holds
-Default: Go live 120s · BRB 120s · Out 20s
-!gta6  Grand Theft Auto VI — Nov 19, 2026 — PS5 + Xbox. PC not announced.
-!when  Thursday, Nov 19, 2026.
-
-Leaks = label UNCONFIRMED. Do not claim you are playing VI before launch.
-
-Not affiliated with Rockstar / Take-Two.
+### 1. Prerequisites
+Ensure you have Python installed, clone this repository, and install the required dependencies:
+```bash
+git clone https://github.com/kspencercuny-coder/GTA-6-Automation-work-flow.git
+cd GTA-6-Automation-work-flow
+pip install -r requirements.txt 
+export XAI_API_KEY="your_grok_api_key_here"
+export ANTHROPIC_API_KEY="your_claude_api_key_here"
+export DISCORD_WEBHOOK="your_optional_discord_webhook_url" # Optional
+python gta6_automation.py
+• [ ] Audio Loopback: Complete microphone isolation test (5-second echo validation).
+• [ ] Scene Verification: Sequencing lock check (Starting Soon ➔ Live ➔ BRB ➔ Ending).
+• [ ] Capture Validation: Native local recording active on designated isolation clip source.
+• [ ] Metadata Deployment: Live stream title and index category updated in platform dashboards.
+• 0:00 - 0:15 | The Hook: Stream introduction, host identity positioning, stating the night's structural value promise.
+• 0:15 - 0:45 | Segment A: Focused single-lane analysis covering core topic tracking blocks.
+• 0:45 - 0:50 | The Reset: Local system refresh, mid-show audience re-engagement prompt.
+• 0:50 - 1:20 | Segment B: Format adjustments, context shifting without deviating from core thematic subject.
+• 1:20 - 1:30 | The Outro: Extracting clip timestamps for short-form rendering pipelines, highlighting next broadcast schedule.
+If engagement thresholds drop, the control panel triggers interactive dialogue hooks:
+1. “What was the very first Grand Theft Auto installment you ever played?”
+2. “Jason or Lucia — who do you predict becomes the main liability in the narrative?”
+3. “What is your ultimate wild or chaotic Wanted-Level survival story?”
+This project is an independent developer toolkit built for workflow simulation and production automation. It is not affiliated with, authorized, maintained, or endorsed by Rockstar Games, Take-Two Interactive, or any of their corporate affiliates.
