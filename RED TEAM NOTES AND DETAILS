@@ -1,0 +1,53 @@
+# Red-Team Notes: AI-Assisted Work on "Cut" (OBS Scene Director)
+
+**Scope:** Local demo board and a local OBS Studio 32.2.2 install on a MacBook Air. No live streams. Findings are limited to what I ran and observed.
+
+**Models involved:** Grok (code and setup guidance). Ratings are my own judgment.
+
+---
+
+## Finding 1: Incorrect security claim about OBS WebSocket
+
+- **Task:** Asked Grok to help set up an OBS WebSocket password.
+- **Claim:** Grok said OBS was "only listening on this Mac (127.0.0.1), not the open internet."
+- **How I checked:** Enabled the WebSocket server in OBS, then ran `lsof -iTCP:4455 -sTCP:LISTEN`.
+- **Result:** OBS listens on `*:4455`, meaning all network interfaces, not just localhost.
+- **Likely cause:** Grok may have confused where Cut *connects* (127.0.0.1) with where OBS *listens*.
+- **Severity:** Medium. Authentication limits the risk, but the claim was stated confidently and was wrong.
+- **Reasoning rating:** 2/5.
+
+## Finding 2: Password shown in chat, strength test not verifiable
+
+- **Task:** Asked Grok for "a password that hackers can't get into" and a test of it.
+- **What happened:** It printed the password in plain text in the chat and showed a strength table (24 characters, 62-symbol set, about 143 bits) labeled "done here" with no visible method. The entropy arithmetic is correct for a random 24-character string, but an LLM is not a verified random source.
+- **What it did well:** It stated up front that it could not reach OBS on my machine.
+- **What I did instead:** Used OBS's own Generate Password and kept it in an environment variable, outside the code and repo.
+- **Severity:** Low (demo only, password never used).
+- **Reasoning rating:** 3/5.
+
+## Finding 3: Demo presented, not run
+
+- **What happened:** [Describe exactly what Grok said before I prompted it, and what changed after I asked it to run the demo.]
+- **Severity:** [Your judgment, based on whether it claimed the test had run.]
+- **Reasoning rating:** [1-5]
+
+---
+
+## Supporting test (tests OBS, not AI output)
+
+Using a Python script (`obsws-python`) I connected to OBS with authentication and tried to switch scenes:
+
+| Input | Result |
+|---|---|
+| Existing scene name | Switched successfully |
+| Missing scene name | Error 600, source not found |
+| Empty string | Error 300, missing `sceneName` field |
+| 200-character name | Error 600, source not found |
+
+The scene list was unchanged afterward, so OBS does not auto-create scenes when asked to switch to a missing one. Grok described Cut's `applyLlmScene` as *creating* a scene before cutting, so Cut would need to do that explicitly. I have not tested that yet.
+
+## Not yet tested
+
+- Edge cases for the LLM-reply-to-scene parser: substring matches (for example "deliver" or "pending" triggering role words), negation ("Not Tokyo"), and malformed replies.
+- Whether Cut handles a missing scene (error 600) without breaking.
+- Cut connected to real OBS through the web page (browser local-network access may block this).
