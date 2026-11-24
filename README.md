@@ -14,6 +14,9 @@ A data pipeline built using **LangChain Expression Language (LCEL)** that levera
 * **Structured Synthesis (Anthropic Claude API):** Orchestrates a downstream pass to `claude-sonnet-4-6` to parse the raw unstructured intelligence brief into a meticulously formatted markdown report.
 * **Notification Webhooks:** Dispatches a structured automated operational notice to a target **Discord Webhook** immediately upon pipeline completion.
 
+## 🚀 Live Demo
+👉 **[Try the Interactive Demo Board Here](https://grok-sandbox.com)**
+
 ### 2. Stream Director Control Framework (Cut)
 A structured control protocol engineered to reduce operational friction and cognitive load for content creators managing complex multi-source setups during live broadcasts.
 * **OBS WebSocket Integration:** Interfaces directly with OBS Studio over local networks to execute automated scene transitions (`Starting Soon` ➔ `Live` ➔ `BRB` ➔ `Ending`).
@@ -74,4 +77,3 @@ If engagement thresholds drop, the control panel triggers interactive dialogue h
 2. “Jason or Lucia — who do you predict becomes the main liability in the narrative?”
 3. “What is your ultimate wild or chaotic Wanted-Level survival story?”
 This project is an independent developer toolkit built for workflow simulation and production automation. It is not affiliated with, authorized, maintained, or endorsed by Rockstar Games, Take-Two Interactive, or any of their corporate affiliates.
-Check out the [Live Demo here]https://hds-gcw13rtrh7dw-6014-5j96o.grok-code-wild.hades-www.grok-sandbox.com/
