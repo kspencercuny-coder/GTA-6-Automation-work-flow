@@ -16,7 +16,7 @@ A data pipeline built using **LangChain Expression Language (LCEL)** that levera
 
 ## 🚀 Live Demo
 👉 **[Try the Interactive Demo Board Here](https://grok-sandbox.com)**
-
+PASTE_PATH_HERE 
 ### 2. Stream Director Control Framework (Cut)
 A structured control protocol engineered to reduce operational friction and cognitive load for content creators managing complex multi-source setups during live broadcasts.
 * **OBS WebSocket Integration:** Interfaces directly with OBS Studio over local networks to execute automated scene transitions (`Starting Soon` ➔ `Live` ➔ `BRB` ➔ `Ending`).
