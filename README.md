@@ -13,11 +13,9 @@ A data pipeline built using **LangChain Expression Language (LCEL)** that levera
 * **Real-Time Data Aggregation (xAI Grok API):** Utilizes `grok-4-1-fast-non-reasoning` to query, extract, and sort the latest news, leak telemetry, and verified studio announcements into strict informational categories (`CONFIRMED`, `RUMOR`).
 * **Structured Synthesis (Anthropic Claude API):** Orchestrates a downstream pass to `claude-sonnet-4-6` to parse the raw unstructured intelligence brief into a meticulously formatted markdown report.
 * **Notification Webhooks:** Dispatches a structured automated operational notice to a target **Discord Webhook** immediately upon pipeline completion.
-
-## 🚀 Live Demo
-👉 **[Try the Interactive Demo Board Here](https://grok-sandbox.com)**
-PASTE_PATH_HERE 
 ### 2. Stream Director Control Framework (Cut)
+## 📸 Demo Preview
+![Cut Control Board](./IMG_4217.png)
 A structured control protocol engineered to reduce operational friction and cognitive load for content creators managing complex multi-source setups during live broadcasts.
 * **OBS WebSocket Integration:** Interfaces directly with OBS Studio over local networks to execute automated scene transitions (`Starting Soon` ➔ `Live` ➔ `BRB` ➔ `Ending`).
 * **Automated Countdowns & Overlays:** Dynamically pushes countdown timers and chat engagement prompts directly into video asset layers.
