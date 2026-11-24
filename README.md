@@ -74,3 +74,4 @@ If engagement thresholds drop, the control panel triggers interactive dialogue h
 2. “Jason or Lucia — who do you predict becomes the main liability in the narrative?”
 3. “What is your ultimate wild or chaotic Wanted-Level survival story?”
 This project is an independent developer toolkit built for workflow simulation and production automation. It is not affiliated with, authorized, maintained, or endorsed by Rockstar Games, Take-Two Interactive, or any of their corporate affiliates.
+Check out the [Live Demo here]https://hds-gcw13rtrh7dw-6014-5j96o.grok-code-wild.hades-www.grok-sandbox.com/
