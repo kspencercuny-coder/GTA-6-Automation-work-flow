@@ -1,7 +1,9 @@
+Markdown
 # GTA 6 Production Automation & Stream Scene Director (Cut)
 
-An AI-driven live production automation system and content orchestration pipeline built for technical live streaming workflows leading up to the Grand Theft Auto VI release. 
+An AI-driven intelligence pipeline and live broadcast control framework designed to aggregate real-time news and automate multi-scene OBS Studio productions.
 
+---
 This repository bridges **Large Language Model (LLM) multi-agent orchestration** with real-time broadcasting tools. It features an automated multi-model research pipeline (`gta6_automation.py`) alongside an optimized desktop stream configuration framework (`Cut`).
 
 ---
@@ -9,10 +11,10 @@ This repository bridges **Large Language Model (LLM) multi-agent orchestration**
 ## 🚀 Core Features
 
 ### 1. Multi-Model AI Research Pipeline (`gta6_automation.py`)
-A data pipeline built using **LangChain Expression Language (LCEL)** that leverages the complementary strengths of two industry-leading LLMs:
+A data pipeline built using LangChain Expression Language (LCEL) that leverages the complementary strengths of two industry-leading LLMs:
 * **Real-Time Data Aggregation (xAI Grok API):** Utilizes `grok-4-1-fast-non-reasoning` to query, extract, and sort the latest news, leak telemetry, and verified studio announcements into strict informational categories (`CONFIRMED`, `RUMOR`).
 * **Structured Synthesis (Anthropic Claude API):** Orchestrates a downstream pass to `claude-sonnet-4-6` to parse the raw unstructured intelligence brief into a meticulously formatted markdown report.
-* **Notification Webhooks:** Dispatches a structured automated operational notice to a target **Discord Webhook** immediately upon pipeline completion.
+* **Notification Webhooks:** Dispatches a structured automated operational notice to a target Discord Webhook immediately upon pipeline completion.
 ### 2. Stream Director Control Framework (Cut)
 ## 📸 Demo Preview
 ![Cut Control Board](./IMG_4217.png)
@@ -28,26 +30,25 @@ A structured control protocol engineered to reduce operational friction and cogn
 * **Language:** Python 3.11+
 * **Frameworks:** LangChain Core, LangChain Anthropic, LangChain xAI
 * **APIs & Protocols:** Anthropic Claude API, xAI Grok API, OBS WebSocket Server, Discord Webhooks API, REST / JSON Data Structures
-[ Scheduled Event Trigger ]
-│
-▼
-┌───────────────────────────────┐
-│     gta6_automation.py        │
-└───────────────┬───────────────┘
-│
-┌───────────────────────┴───────────────────────┐
-▼                                               ▼
-┌────────────────────┐                          ┌────────────────────┐
-│   xAI Grok API     │                          │ Anthropic Claude   │
-│ (Real-time Intel)  │ ───[ Concatenated Text ]➔│ (Markdown Design)  │
-└────────────────────┘                          └──────────┬─────────┘
-│
-▼
-┌────────────────────┐
-│  Discord Webhook   │
-│ (Uptime Warning)   │
-└────────────────────┘
----
+
+```text
+[Scheduled Event Trigger]
+           │
+           ▼
+   ┌───────────────┐
+   │  xAI Grok API │  (Real-time Intel)
+   └───────┬───────┘
+           │
+           ▼  (Concatenated Text)
+ ┌───────────────────┐
+ │ Anthropic Claude  │  (Markdown Design)
+ └─────────┬─────────┘
+           │
+           ▼
+   ┌───────────────┐
+   │Discord Webhook│  (Uptime Warning)
+   └───────────────┘
+```
 
 ## ⚙️ Setup & Installation
 
